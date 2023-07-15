@@ -1,17 +1,17 @@
 import React from "react";
-import { Admin, ListGuesser, Resource } from "react-admin";
+import { Admin, Resource } from "react-admin";
 import jsonServerProvider from "ra-data-json-server";
-import PostList from "./components/posts/list";
+import UserList from "./components/users/list";
+import LoginList from "./components/logins/list";
 
 // NOTE: it like a prefix endpoint
-const dataProvider = jsonServerProvider("https://jsonplaceholder.typicode.com");
+const dataProvider = jsonServerProvider("http://localhost:3004");
 
 const App = () => (
   <Admin dataProvider={dataProvider}>
-    <Resource name="users" list={ListGuesser} />
-
     {/* NOTE: name is a api path */}
-    <Resource name="posts" list={PostList} options={{ label: "My Posts" }} />
+    <Resource name="users" list={UserList} options={{ label: "Users ^^" }} />
+    <Resource name="logins" list={LoginList} />
   </Admin>
 );
 
