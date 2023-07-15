@@ -1,13 +1,6 @@
 import React from "react";
 import { Datagrid, List, ReferenceField, TextField } from "react-admin";
 
-export type Login = {
-  id: number;
-  user_id: string;
-  username: string;
-  password: string;
-};
-
 const PostList: React.FC = () => {
   return (
     <List>

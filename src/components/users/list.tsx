@@ -1,11 +1,6 @@
 import React from "react";
 import { Datagrid, FunctionField, List, TextField } from "react-admin";
-
-export type User = {
-  id: number;
-  first_name: string;
-  last_name?: string;
-};
+import { User } from "./modal";
 
 const PostList: React.FC = () => {
   return (
@@ -14,12 +9,15 @@ const PostList: React.FC = () => {
         <TextField source="id" />
         <FunctionField
           label="Name"
-          render={(record: User) =>
-            record && `${record.first_name} (${record.last_name})`
-          }
+          render={(record: User) => {
+            if (record && record.last_name)
+              return `${record.first_name} (${record.last_name})`;
+
+            return record.first_name;
+          }}
         />
         <TextField source="first_name" />
-        <TextField source="last_name" />
+        <TextField source="last_name" emptyText="-" />
       </Datagrid>
     </List>
   );
