@@ -1,26 +1,18 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import { Admin, ListGuesser, Resource } from "react-admin";
+import jsonServerProvider from "ra-data-json-server";
+import PostList from "./components/posts/list";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+// NOTE: it like a prefix endpoint
+const dataProvider = jsonServerProvider("https://jsonplaceholder.typicode.com");
+
+const App = () => (
+  <Admin dataProvider={dataProvider}>
+    <Resource name="users" list={ListGuesser} />
+
+    {/* NOTE: name is a api path */}
+    <Resource name="posts" list={PostList} options={{ label: "My Posts" }} />
+  </Admin>
+);
 
 export default App;
