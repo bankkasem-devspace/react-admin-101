@@ -1,17 +1,17 @@
 {
-    "users": [
-        {
-            "id": 0,
-            "first_name": "admin",
-            "last_name": "admin"
-        }
-    ],
-    "logins": [
-        {
-            "id": 0,
-            "user_id": 0,
-            "username": "admin",
-            "password": "0000"
-        }
-    ]
+  "users": [
+    {
+      "id": "bf9ef13a-249c-478a-ac0c-acc4eb5264ee",
+      "first_name": "admin",
+      "last_name": "admin"
+    }
+  ],
+  "logins": [
+    {
+      "id": "29074bfe-c939-4191-ae90-0ebacebaf400",
+      "user_id": "bf9ef13a-249c-478a-ac0c-acc4eb5264ee",
+      "username": "admin",
+      "password": "0000"
+    }
+  ]
 }
